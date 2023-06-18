@@ -26,9 +26,9 @@ build/
 *.tmp
 
 # Archivos de propiedades específicos de cada entorno
-application-dev.yml
-application-prod.yml
-application.yml
+**/application-dev.yml
+**/application-prod.yml
+**/application.yml
 
 # Dependencias de Node.js
 /node_modules
