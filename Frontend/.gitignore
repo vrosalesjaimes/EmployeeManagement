@@ -1,0 +1,19 @@
+# Dependency directories
+node_modules/
+dist/
+dist-server/
+
+# Compiled output
+dist/
+tmp/
+
+# Log files
+logs/
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
