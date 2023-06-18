@@ -1,0 +1,50 @@
+# Dependencias de Maven
+target/
+
+# Archivos generados por el IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Archivos de configuración de Eclipse
+.classpath
+.project
+.settings/
+
+# Logs
+logs/
+
+# Ficheros de compilación
+bin/
+build/
+
+# Otros archivos y directorios generados
+*.log
+*.swp
+*.bak
+*.tmp
+
+# Archivos de propiedades específicos de cada entorno
+application-dev.yml
+application-prod.yml
+
+# Dependencias de Node.js
+/node_modules
+
+# Carpeta de salida de compilación
+/dist
+
+# Archivos de respaldo
+*.bak
+*.swp
+
+# Archivos de configuración de VS Code
+.vscode/
+
+# Otros archivos y directorios generados
+.DS_Store
+Thumbs.db
+
+# Registros de errores de Angular
+ng-error.log
