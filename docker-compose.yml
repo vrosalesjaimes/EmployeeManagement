@@ -1,32 +1,25 @@
 version: "3.9"
+
 services:
+  
   backend:
     build:
-      context: .
-      dockerfile: Backend/Dockerfile
+      context: ./Backend
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=employee_management
     depends_on:
       - db
-  frontend:
-    build:
-      context: .
-      dockerfile: Frontend/Dockerfile
-    ports:
-      - 4200:4200
-    depends_on:
-      - backend
+  
   db:
-    image: postgres
+    image: postgres:15
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=employee_management
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
     volumes:
-      - ./Backend/database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./postgres-init-scripts:/docker-entrypoint-initdb.d
 
 
