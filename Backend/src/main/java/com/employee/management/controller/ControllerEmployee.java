@@ -43,7 +43,7 @@ public class ControllerEmployee {
     }
 
     @PutMapping(value="/employees/{id}")
-    public ResponseEntity<Employee> updateEmployeeById(@PathVariable Long id, @RequestBody Employee newData){
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee newData){
         Employee employee = repositoryEmployee.findById(id)
                             .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado"));
         employee.setFirstName(newData.getFirstName());
