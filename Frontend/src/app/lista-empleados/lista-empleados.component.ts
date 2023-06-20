@@ -31,4 +31,14 @@ export class ListaEmpleadosComponent {
     );
   }
 
+  eliminarEmpleado(id:number){
+    this.empleadoServicio.eliminarEmpleado(id).subscribe({
+      next: dato =>{
+        console.log(dato);
+        this.obtenerEmpleados();
+      }
+
+    })
+  }
+
 }
