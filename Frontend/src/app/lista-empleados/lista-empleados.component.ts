@@ -1,3 +1,4 @@
+import  Swal  from 'sweetalert2';
 import { Component } from '@angular/core';
 import { Empleado } from '../empleado';
 import { EmpleadoService } from '../empleado.service';
@@ -32,13 +33,32 @@ export class ListaEmpleadosComponent {
   }
 
   eliminarEmpleado(id:number){
-    this.empleadoServicio.eliminarEmpleado(id).subscribe({
-      next: dato =>{
-        console.log(dato);
-        this.obtenerEmpleados();
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Confirma si deseas eliminar al empleado',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
+    }).then((result) => {
+      if(result.value){
+        this.empleadoServicio.eliminarEmpleado(id).subscribe(dato => {
+          console.log(dato);
+          this.obtenerEmpleados();
+          Swal.fire(
+            'Empleado eliminado',
+            'El empleado ha sido eliminado con exito',
+            'success'
+          )
+        })
       }
-
     })
+  }
+
+  verDetallesDelEmpleado(id:number){
+    this.router.navigate(['empleado-detalles', id]);
   }
 
 }
